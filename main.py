@@ -16,40 +16,34 @@ service = Service(r"C:\Users\opilane\source\repos\edgedriver_win64\msedgedriver.
 driver = webdriver.Edge(service=service, options=options)
 
 try:
-    # 1. Открываем сайт example.com
     driver.get("https://www.tthk.ee/")
     time.sleep(2)
 
-    # 2. Скроллим немного вниз
     driver.execute_script("window.scrollTo(0, 300);")
     time.sleep(1)
 
-    # 3. Скроллим обратно вверх
     driver.execute_script("window.scrollTo(0, 0);")
     time.sleep(1)
 
-    # 4. Обновляем страницу
     driver.refresh()
     time.sleep(1)
 
-    # 5. Открываем вторую вкладку с формой
     driver.execute_script("window.open('https://httpbin.org/forms/post');")
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(2)
 
-    # 6. Вводим имя
     name_input = driver.find_element(By.NAME, "custname")
     name_input.send_keys("Test")
     time.sleep(1)
 
-    # 7. Вводим телефон
     tel_input = driver.find_element(By.NAME, "custtel")
     tel_input.send_keys("123456789")
     time.sleep(1)
 
-    # 8. Скроллим немного вниз по форме
-    tel_input = driver.find_element(By.Name, "custtel")
-    tel_input.send_keys("opilane123@.gmail.com")
+    driver.refresh()
     time.sleep(1)
+
+    driver.get("https://davidlennuk23.thkit.ee/")
+    time.sleep(2)
 finally:
     driver.quit()
