@@ -57,9 +57,7 @@ try:
     time.sleep(1)
 
     # 10. Нажимаем кнопку отправки формы
-    submit_button = driver.find_element(By.CSS_SELECTOR, "button[type='submit']")
-    submit_button.click()
+    driver.get("https://davidlennuk23.thkit.ee/")
     time.sleep(2)
-
 finally:
     driver.quit()
