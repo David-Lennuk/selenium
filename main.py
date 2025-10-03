@@ -51,13 +51,5 @@ try:
     tel_input = driver.find_element(By.Name, "custtel")
     tel_input.send_keys("opilane123@.gmail.com")
     time.sleep(1)
-
-    # 9. Скроллим обратно вверх по форме
-    driver.refresh()
-    time.sleep(1)
-
-    # 10. Нажимаем кнопку отправки формы
-    driver.get("https://davidlennuk23.thkit.ee/")
-    time.sleep(2)
 finally:
     driver.quit()
