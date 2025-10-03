@@ -17,7 +17,7 @@ driver = webdriver.Edge(service=service, options=options)
 
 try:
     # 1. Открываем сайт example.com
-    driver.get("https://example.com")
+    driver.get("https://www.tthk.ee/")
     time.sleep(2)
 
     # 2. Скроллим немного вниз
@@ -48,11 +48,12 @@ try:
     time.sleep(1)
 
     # 8. Скроллим немного вниз по форме
-    driver.execute_script("window.scrollTo(0, 300);")
+    tel_input = driver.find_element(By.Name, "custtel")
+    tel_input.send_keys("opilane123@.gmail.com")
     time.sleep(1)
 
     # 9. Скроллим обратно вверх по форме
-    driver.execute_script("window.scrollTo(0, 0);")
+    driver.refresh()
     time.sleep(1)
 
     # 10. Нажимаем кнопку отправки формы
